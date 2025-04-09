@@ -10,10 +10,7 @@ The dependency `example-internal-package` is assumed to be internal/private. If 
 
 ## 👀 How to Use
 
-1. Clone this repo
-2. Run `npm install` (⚠️ make sure you're in a controlled/safe test environment)
-3. Scan it using your security tool (e.g., Snyk, npm audit, etc.)
-4. Detect the dependency confusion risk
+Just add this to Metadefender SCS
 
 ## 📂 Structure
 
