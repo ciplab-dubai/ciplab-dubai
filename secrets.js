@@ -1,6 +1,5 @@
 // 🚨 This file contains fake secrets for testing DLP and secrets-scanning tools only
 // DO NOT use real credentials here.
-//Author: ?Amer
 
 const config = {
   awsAccessKeyId: "AKIAFAKEKEY1234567890",
