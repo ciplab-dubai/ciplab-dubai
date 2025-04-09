@@ -1,0 +1,27 @@
+# Create a file that simulates hardcoded database credentials for DLP detection
+
+db_credentials_content = """\
+// 🚨 This file contains fake DB credentials for DLP testing purposes only
+
+const dbConfig = {
+  host: "localhost",
+  port: 5432,
+  user: "admin",
+  password: "SuperSecretDBPassword123!",
+  database: "production_db"
+};
+
+module.exports = dbConfig;
+"""
+
+# Add this file to the ZIP archive
+zip_path_with_db = "/mnt/data/vuln-supply-chain-demo-with-db-creds.zip"
+
+with zipfile.ZipFile(zip_path_with_db, 'w') as zipf:
+    for filepath, content in files.items():
+        zipf.writestr(filepath, content)
+    zipf.writestr("vuln-supply-chain-demo/secrets.js", secrets_content)
+    zipf.writestr("vuln-supply-chain-demo/vulnerable-server.js", vuln_code_content)
+    zipf.writestr("vuln-supply-chain-demo/dbConfig.js", db_credentials_content)
+
+zip_path_with_db
