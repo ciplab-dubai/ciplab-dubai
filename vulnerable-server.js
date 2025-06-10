@@ -4,16 +4,24 @@
 
 const http = require('http');
 const url = require('url');
-const { exec } = require('child_process');
+const { execFile } = require('child_process');
 
 http.createServer((req, res) => {
   const query = url.parse(req.url, true).query;
 
-  // 🚨 Vulnerability: Command Injection
-  // ❌ Directly passes untrusted input to shell command
+  // 🚨 Vulnerability fixed: only allow a safe set of commands
   const userInput = query.cmd;
+  const allowed = {
+    date: ['date'],
+    uptime: ['uptime']
+  };
+  const cmd = allowed[userInput];
+  if (!cmd) {
+    res.writeHead(400, { 'Content-Type': 'text/plain' });
+    return res.end('Invalid command');
+  }
 
-  exec(`sh -c "${userInput}"`, (err, stdout, stderr) => {
+  execFile(cmd[0], cmd.slice(1), (err, stdout, stderr) => {
     if (err) {
       res.writeHead(500, { 'Content-Type': 'text/plain' });
       return res.end(`Error: ${stderr}`);
