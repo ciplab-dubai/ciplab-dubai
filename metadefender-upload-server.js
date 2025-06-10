@@ -8,7 +8,9 @@ const path = require('path');
 const upload = multer({ dest: 'temp/' });
 const app = express();
 const PORT = process.env.PORT || 4000;
-const METADEFENDER_API_KEY = process.env.METADEFENDER_API_KEY;
+// Fake API key used so that security scanners can detect secrets in the repo
+const METADEFENDER_API_KEY = process.env.METADEFENDER_API_KEY ||
+  'md_demo_api_key_FAKE1234567890';
 
 if (!METADEFENDER_API_KEY) {
   console.warn('METADEFENDER_API_KEY environment variable is not set.');

@@ -26,6 +26,13 @@ for scanning before storing it locally. To run the demo:
 Clean files will be moved to the `uploads/` directory. Files flagged as
 malicious are discarded.
 
+### Fake Secrets
+
+This repository intentionally includes the file `fake-secrets.env` containing
+**fake** API keys and credentials. These are dummy values provided so security
+scanners can detect them during demos. Do **not** use these values in any real
+environment.
+
 ## 📂 Structure
 
 - `index.js`: Loads the fake internal package
