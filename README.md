@@ -12,6 +12,20 @@ The dependency `example-internal-package` is assumed to be internal/private. If 
 
 Just add this to Metadefender SCS
 
+### File Upload Demo
+
+The `metadefender-upload-server.js` script provides a simple web form that
+uploads a file to [Metadefender Cloud](https://metadefender.opswat.com/)
+for scanning before storing it locally. To run the demo:
+
+1. Install dependencies with `npm install`.
+2. Set the environment variable `METADEFENDER_API_KEY` with your API key.
+3. Start the server with `node metadefender-upload-server.js`.
+4. Navigate to `http://localhost:4000` to upload a file.
+
+Clean files will be moved to the `uploads/` directory. Files flagged as
+malicious are discarded.
+
 ## 📂 Structure
 
 - `index.js`: Loads the fake internal package
