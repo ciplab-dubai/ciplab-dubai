@@ -7,7 +7,10 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "example-internal-package": "1.0.0"
+    "example-internal-package": "1.0.0",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "axios": "^1.6.7"
   },
   "author": "Amer",
   "license": "MIT"
